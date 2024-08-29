@@ -18,8 +18,9 @@ class UsuarioController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
+        $remember = $request->has('remember'); // Verifica si la opción "Recuérdame" está activada
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
             return redirect()->route('inicio'); // O cualquier ruta protegida
         }
@@ -27,9 +28,10 @@ class UsuarioController extends Controller
         return back()->withErrors([
             'email' => 'Las credenciales no coinciden con nuestros registros.',
         ]);
-        
     }
-    public function logout(Request $request){
+
+    public function logout(Request $request)
+    {
         Auth::logout();
 
         $request->session()->invalidate();
@@ -37,6 +39,4 @@ class UsuarioController extends Controller
 
         return redirect('login');
     }
-
-
 }
