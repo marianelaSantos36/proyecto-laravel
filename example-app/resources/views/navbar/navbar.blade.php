@@ -1,8 +1,12 @@
 <header>
 <nav class="navbar navbar-expand-lg navbar-custom" style="background-color: #343a40;">
+    <a class="navbar-brand" href="{{ url('/') }}">
+        <img src="{{ asset('images/logo.png') }}" alt="FAIRY" style="width: 100px;">
+    </a>    
     <a class="navbar-brand" href="{{ url ('/')}}">
         <span style="color: #f8f9fa;">FAIRY</span>
     </a>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -19,6 +23,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url ('/cliente') }}" style="color: #f8f9fa;">CLIENTES</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/ventas') }}" style="color: #f8f9fa;">VENTAS</a> <!-- Aquí agregas el enlace a ventas -->
             </li>
         </ul>
         <div class="dropdown">
@@ -37,46 +44,31 @@
 @vite('resources/js/app.js')
 </header>
 <style>
-
-    .navbar-custom {
-        background: linear-gradient(90deg, #460743 0%, #d376ce 100%);
-        border-bottom: 2px solid #ffffff;
-    }
-
-
-    .navbar-brand span {
+.navbar-custom {
+    background: linear-gradient(90deg, #c3bac7 0%, #7c568d 100%, #5f2859 100%);
+    border-bottom: 2px solid #ffffff;
+}    .navbar-brand span {
         font-weight: bold;
         font-size: 1.5rem;
-        color: #f8f9fa; }
-
-
+        color: #f8f9fa; 
+    }
     .nav-link {
         font-weight: 500;
         color: #f8f9fa;
         transition: color 0.3s ease, background-color 0.3s ease; 
     }
-
-
     .nav-link.active {
         font-weight: 700;
         background: linear-gradient(135deg, #729ac2 0%, #81287a 100%); 
         border-radius: .25rem; 
     }
-
-
-
-
     .dropdown-item:hover {
         background-color: #495057; 
         color: #f8f9fa; 
     }
-
-
     .navbar-toggler-icon {
         background-image: url('https://img.icons8.com/material-outlined/24/ffffff/menu--v1.png'); /* Icono personalizado para el botón de toggle */
     }
-
-
     .dropdown-menu-end {
         border-radius: .25rem; 
         box-shadow: 0 0 0 0 rgba(0,0,0,0.1); 
